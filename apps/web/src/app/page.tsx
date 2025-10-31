@@ -1,22 +1,34 @@
-import GetTest from "./components/get-test";
+"use client";
+
+import { SidebarInset, SidebarTrigger } from "@monorepo/ui/components/sidebar";
+import { AppSidebar } from "./components/app-sidebar";
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-8 max-w-4xl mx-auto">
-      <header className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-4">Monorepo Showcase</h1>
-        <p className="text-muted-foreground">
-          This demo shows the integration between different packages in our
-          monorepo: UI components, API connectivity, and shared types.
-        </p>
-      </header>
-
-      <div className="space-y-8">
-        <section>
-          <h2 className="text-xl font-semibold mb-4">API Integration Demo</h2>
-          <GetTest />
-        </section>
-      </div>
-    </main>
+    <div className="flex min-h-screen w-full">
+      <AppSidebar />
+      <SidebarInset>
+        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+          <SidebarTrigger className="-ml-1" />
+        </header>
+        <main className="flex flex-1 flex-col gap-4 p-6">
+          <div className="flex flex-col items-center justify-center gap-6 min-h-[calc(100vh-8rem)]">
+            <div className="text-center space-y-4 max-w-2xl">
+              <h1 className="text-4xl font-bold tracking-tight">
+                Welcome to Todo App
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                Manage your todos with drag-and-drop, labels, and statistics. 
+                Use the sidebar to navigate to different sections of the app.
+              </p>
+              <p className="text-lg text-muted-foreground">
+                Get started by creating your first todo or explore your statistics 
+                to see insights about your productivity.
+              </p>
+            </div>
+          </div>
+        </main>
+      </SidebarInset>
+    </div>
   );
 }

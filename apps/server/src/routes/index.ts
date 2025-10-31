@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import testRouter from "./test";
+import todosRouter from "./todos";
 
 const router = Router();
 
@@ -8,6 +8,6 @@ router.get("/", function (_req, res) {
   res.send("Express API is running");
 });
 
-router.use("/test", testRouter);
+router.use("/todos", todosRouter);
 
 export default router;
