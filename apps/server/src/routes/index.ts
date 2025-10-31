@@ -1,5 +1,6 @@
 import { Router } from "express";
 
+import motivationsRouter from "./motivations";
 import todosRouter from "./todos";
 
 const router = Router();
@@ -9,5 +10,6 @@ router.get("/", function (_req, res) {
 });
 
 router.use("/todos", todosRouter);
+router.use("/motivations", motivationsRouter);
 
 export default router;
